@@ -4,20 +4,21 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import start.entity.Booker;
 import start.entity.BookerRepository;
+import start.service.BookerService;
 
 import java.util.Collection;
 
 @RestController
 public class BookerController {
 
-    private BookerRepository bookerRepository;
+    private BookerService bookerService;
 
-    BookerController(BookerRepository bookerRepository) {
-        this.bookerRepository = bookerRepository;
+    BookerController(BookerService bookerService) {
+        this.bookerService = bookerService;
     }
 
     @GetMapping("/booker")
     public Collection<Booker> getBookers() {
-        return bookerRepository.findAll();
+        return bookerService.getAll();
     }
 }

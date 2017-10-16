@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import start.entity.BookerRepository;
+import start.service.BookerService;
 
 import static org.mockito.Mockito.verify;
 
@@ -13,24 +13,24 @@ import static org.mockito.Mockito.verify;
 public class BookerControllerTest {
 
     @Mock
-    private BookerRepository bookerRepository;
+    private BookerService bookerService;
 
     BookerController bookerController;
 
     @Before
     public void setUp() throws Exception {
-        bookerController = new BookerController(this.bookerRepository);
+        bookerController = new BookerController(this.bookerService);
 
     }
 
     @Test
-   public void shouldCallBookersRepositoryGetAll() {
+    public void shouldCallBookersRepositoryGetAll() {
 
         //when
         bookerController.getBookers();
 
         //then
-        verify(bookerRepository).findAll();
+        verify(bookerService).getAll();
 
     }
 

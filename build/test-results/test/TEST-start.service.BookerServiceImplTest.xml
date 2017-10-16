@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="start.service.BookerServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2017-10-16T22:48:19" hostname="Davids-MacBook-Pro.local" time="0.016">
+  <properties/>
+  <testcase name="shouldCallServiceGetAllBookers" classname="start.service.BookerServiceImplTest" time="0.016"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
