@@ -2,10 +2,12 @@
   <library name="Gradle: org.springframework.boot:spring-boot-starter-remote-shell:1.5.7.RELEASE">
     <CLASSES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-remote-shell/1.5.7.RELEASE/90a6facb33c1ad7baf7ab32be516c8136ec9ce0a/spring-boot-starter-remote-shell-1.5.7.RELEASE.jar!/" />
+      <root url="jar:///Library/Gradle/gradle-3.3/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-remote-shell/1.5.7.RELEASE/90a6facb33c1ad7baf7ab32be516c8136ec9ce0a/spring-boot-starter-remote-shell-1.5.7.RELEASE.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>
       <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-remote-shell/1.5.7.RELEASE/8f4116b3994bd918d8e336aa72d2c5ed024a14c9/spring-boot-starter-remote-shell-1.5.7.RELEASE-sources.jar!/" />
+      <root url="jar:///Library/Gradle/gradle-3.3/caches/modules-2/files-2.1/org.springframework.boot/spring-boot-starter-remote-shell/1.5.7.RELEASE/8f4116b3994bd918d8e336aa72d2c5ed024a14c9/spring-boot-starter-remote-shell-1.5.7.RELEASE-sources.jar!/" />
     </SOURCES>
   </library>
 </component>

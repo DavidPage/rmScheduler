@@ -1,8 +1,8 @@
 package start.service;
 
 import org.springframework.stereotype.Service;
-import start.entity.Booker;
-import start.entity.BookerRepository;
+import start.entity.booker.Booker;
+import start.entity.repository.BookerRepository;
 
 import java.util.Collection;
 

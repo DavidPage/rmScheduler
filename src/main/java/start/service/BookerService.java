@@ -1,6 +1,6 @@
 package start.service;
 
-import start.entity.Booker;
+import start.entity.booker.Booker;
 
 import java.util.Collection;
 

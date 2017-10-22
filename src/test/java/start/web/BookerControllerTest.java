@@ -20,7 +20,6 @@ public class BookerControllerTest {
     @Before
     public void setUp() throws Exception {
         bookerController = new BookerController(this.bookerService);
-
     }
 
     @Test
