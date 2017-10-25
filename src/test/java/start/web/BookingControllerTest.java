@@ -6,6 +6,9 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import start.service.BookingServiceImpl;
+import start.web.pojos.WebBooking;
+
+import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
 public class BookingControllerTest {
@@ -18,7 +21,6 @@ public class BookingControllerTest {
 
 	@Before
 	public void setUp() throws Exception {
-
 		this.bookingController = new BookingController(bookingService);
 	}
 
@@ -29,7 +31,7 @@ public class BookingControllerTest {
 		bookingController.getBookings();
 
 		//then
-		bookingService.getAllBookings();
+		verify(bookingService).getAllBookings();
 	}
 
 	@Test
@@ -39,6 +41,18 @@ public class BookingControllerTest {
 		bookingController.getBookingsByBookerId(1L);
 
 		//then
-		bookingService.getBookingsByBookerId(1L);
+		verify(bookingService).getBookingsByBookerId(1L);
+	}
+
+	@Test
+	public void shouldPassBookingOntoBookingService() throws Exception {
+
+		final WebBooking webBooking = new WebBooking(1L, 0L);
+
+		//when
+		bookingController.createBooking(webBooking);
+
+		//then
+		verify(bookingService).createBooking(webBooking);
 	}
 }

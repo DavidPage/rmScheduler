@@ -4,8 +4,9 @@ import start.entity.booker.Booker;
 
 import java.util.Collection;
 
-public interface BookerService {
+public interface RegistrantService {
 
     Collection<Booker> getAll();
 
+	Booker getBookerById(Long id);
 }

@@ -3,21 +3,21 @@ package start.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import start.entity.booker.Booker;
-import start.service.BookerService;
+import start.service.RegistrantService;
 
 import java.util.Collection;
 
 @RestController
 public class BookerController {
 
-	private BookerService bookerService;
+	private RegistrantService registrantService;
 
-	BookerController(BookerService bookerService) {
-		this.bookerService = bookerService;
+	BookerController(RegistrantService registrantService) {
+		this.registrantService = registrantService;
 	}
 
 	@GetMapping("/booker")
 	public Collection<Booker> getBookers() {
-		return bookerService.getAll();
+		return registrantService.getAll();
 	}
 }

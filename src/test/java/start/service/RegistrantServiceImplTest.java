@@ -10,16 +10,16 @@ import start.entity.repository.BookerRepository;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class BookerServiceImplTest {
+public class RegistrantServiceImplTest {
 
     @Mock
     BookerRepository bookerRepository;
 
-    BookerServiceImpl bookerService;
+    RegistrantServiceImpl bookerService;
 
     @Before
     public void setUp() throws Exception {
-        this.bookerService = new BookerServiceImpl(bookerRepository);
+        this.bookerService = new RegistrantServiceImpl(bookerRepository);
     }
 
     @Test

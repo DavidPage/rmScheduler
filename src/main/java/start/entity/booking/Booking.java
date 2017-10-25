@@ -15,23 +15,30 @@ public class Booking {
 	@GeneratedValue
 	private Long id;
 
+	private Long propertyId;
+
 	@ManyToOne
 	private Booker booker;
 
 	public Booking() {//for JPA
-
 	}
 
-	public Booking(Booker booker) {
+	public Booking(Booker booker, Long propertyId) {
 		this.booker = booker;
+		this.propertyId = propertyId;
 	}
 
-	public Long getId() {
-		return id;
-	}
+	//will print the id of each booking
+//	public Long getId() {
+//		return id;
+//	}
 
 	public Booker getBooker() {
 		return booker;
+	}
+
+	public Long getPropertyId() {
+		return propertyId;
 	}
 
 	@Override
@@ -44,18 +51,20 @@ public class Booking {
 		}
 		Booking booking = (Booking) o;
 		return Objects.equals(id, booking.id) &&
+				Objects.equals(propertyId, booking.propertyId) &&
 				Objects.equals(booker, booking.booker);
 	}
 
 	@Override
 	public int hashCode() {
-		return Objects.hash(id, booker);
+		return Objects.hash(id, propertyId, booker);
 	}
 
 	@Override
 	public String toString() {
 		return "Booking{" +
 				"id=" + id +
+				", propertyId=" + propertyId +
 				", booker=" + booker +
 				'}';
 	}

@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import start.service.BookerService;
+import start.service.RegistrantService;
 
 import static org.mockito.Mockito.verify;
 
@@ -13,13 +13,13 @@ import static org.mockito.Mockito.verify;
 public class BookerControllerTest {
 
     @Mock
-    private BookerService bookerService;
+    private RegistrantService registrantService;
 
     BookerController bookerController;
 
     @Before
     public void setUp() throws Exception {
-        bookerController = new BookerController(this.bookerService);
+        bookerController = new BookerController(this.registrantService);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class BookerControllerTest {
         bookerController.getBookers();
 
         //then
-        verify(bookerService).getAll();
+        verify(registrantService).getAll();
 
     }
 
