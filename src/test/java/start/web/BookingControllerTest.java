@@ -47,7 +47,7 @@ public class BookingControllerTest {
 	@Test
 	public void shouldPassBookingOntoBookingService() throws Exception {
 
-		final WebBooking webBooking = new WebBooking(1L, 0L);
+		final WebBooking webBooking = new WebBooking(1L, 0L, 123456789L);
 
 		//when
 		bookingController.createBooking(webBooking);

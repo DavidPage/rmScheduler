@@ -70,7 +70,7 @@ public class BookingServiceImplTest {
 	@Test
 	public void shouldRetrieveBookerAndConvertWebBookingAndSaveBooking() {
 
-		final WebBooking webBooking = new WebBooking(1L, 2L);
+		final WebBooking webBooking = new WebBooking(1L, 2L, 123456789L);
 
 		final Booker booker = new Booker("David");
 
