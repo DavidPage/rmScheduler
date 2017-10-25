@@ -10,7 +10,7 @@ import start.service.RegistrantService;
 import static org.mockito.Mockito.verify;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-public class BookerControllerTest {
+public class RegistrantControllerTest {
 
     @Mock
     private RegistrantService registrantService;

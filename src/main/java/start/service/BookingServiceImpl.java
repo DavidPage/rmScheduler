@@ -1,7 +1,7 @@
 package start.service;
 
 import org.springframework.stereotype.Service;
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
 import start.service.converter.WebBookingToBookingConverter;
 import start.web.pojos.WebBooking;
@@ -11,12 +11,12 @@ import java.util.Collection;
 @Service
 public class BookingServiceImpl implements BookingService {
 
-	private RegistrantRepository registrantRepository;
+	private BookingRepository registrantRepository;
 	private RegistrantService registrantService;
 	private WebBookingToBookingConverter webBookingToBookingConverter;
 
 	public BookingServiceImpl(
-			RegistrantRepository registrantRepository,
+			BookingRepository registrantRepository,
 			RegistrantService bookerRepository,
 			WebBookingToBookingConverter webBookingToBookingConverter) {
 		this.registrantRepository = registrantRepository;
@@ -30,15 +30,15 @@ public class BookingServiceImpl implements BookingService {
 
 	@Override
 	public Collection<Booking> getBookingsByBookerId(Long bookerId) {
-		return registrantRepository.getBookingByBookerId(bookerId);
+		return registrantRepository.getBookingByRegistrantId(bookerId);
 	}
 
 	@Override
 	public void createBooking(WebBooking webBooking) {
 
-		final Booker booker = registrantService.getBookerById(webBooking.getRegistrantId());
+		final Registrant registrant = registrantService.getBookerById(webBooking.getRegistrantId());
 
-		final Booking booking = webBookingToBookingConverter.convert(webBooking, booker);
+		final Booking booking = webBookingToBookingConverter.convert(webBooking, registrant);
 
 		registrantRepository.save(booking);
 	}

@@ -1,12 +1,12 @@
 package start.service;
 
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 
 import java.util.Collection;
 
 public interface RegistrantService {
 
-    Collection<Booker> getAll();
+    Collection<Registrant> getAll();
 
-	Booker getBookerById(Long id);
+	Registrant getBookerById(Long id);
 }

@@ -2,7 +2,7 @@ package start.web;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 import start.service.RegistrantService;
 
 import java.util.Collection;
@@ -17,7 +17,7 @@ public class BookerController {
 	}
 
 	@GetMapping("/booker")
-	public Collection<Booker> getBookers() {
+	public Collection<Registrant> getBookers() {
 		return registrantService.getAll();
 	}
 }

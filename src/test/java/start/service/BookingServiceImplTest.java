@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
 import start.service.converter.WebBookingToBookingConverter;
 import start.web.pojos.WebBooking;
@@ -30,22 +30,22 @@ public class BookingServiceImplTest {
 	RegistrantService registrantService;
 
 	@Mock
-	RegistrantRepository registrantRepository;
+	BookingRepository bookingRepository;
 
 	@Before
 	public void setUp() throws Exception {
-		this.bookingService = new BookingServiceImpl(registrantRepository, registrantService, webBookingToBookingConverter);
+		this.bookingService = new BookingServiceImpl(bookingRepository, registrantService, webBookingToBookingConverter);
 	}
 
 	@Test
 	public void shouldReturnCollectionOfBookingsByBookerId() throws Exception {
 
-		final Booker booker = new Booker("David");
-		final Booking booking1 = new Booking(booker, 1L);
-		final Booking booking2 = new Booking(booker, 2L);
+		final Registrant registrant = new Registrant("David");
+		final Booking booking1 = new Booking(registrant, 1L);
+		final Booking booking2 = new Booking(registrant, 2L);
 
 		//given
-		when(registrantRepository.getBookingByBookerId(1L)).thenReturn(asList(booking1, booking2));
+		when(bookingRepository.getBookingByRegistrantId(1L)).thenReturn(asList(booking1, booking2));
 
 		//when
 		Collection<Booking> actualBookings = this.bookingService.getBookingsByBookerId(1L);
@@ -62,7 +62,7 @@ public class BookingServiceImplTest {
 		bookingService.getAllBookings();
 
 		//then
-		verify(registrantRepository).findAll();
+		verify(bookingRepository).findAll();
 	}
 
 
@@ -72,18 +72,18 @@ public class BookingServiceImplTest {
 
 		final WebBooking webBooking = new WebBooking(1L, 2L, 123456789L);
 
-		final Booker booker = new Booker("David");
+		final Registrant registrant = new Registrant("David");
 
-		final Booking booking = new Booking(booker, 1L);
+		final Booking booking = new Booking(registrant, 1L);
 
 		//given
-		when(registrantService.getBookerById(2L)).thenReturn(booker);
-		when(webBookingToBookingConverter.convert(webBooking, booker)).thenReturn(booking);
+		when(registrantService.getBookerById(2L)).thenReturn(registrant);
+		when(webBookingToBookingConverter.convert(webBooking, registrant)).thenReturn(booking);
 
 		//when
 		bookingService.createBooking(webBooking);
 
 		//then
-		verify(registrantRepository).save(booking);
+		verify(bookingRepository).save(booking);
 	}
 }

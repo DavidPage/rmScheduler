@@ -2,7 +2,7 @@ package start.service.converter;
 
 import org.junit.Before;
 import org.junit.Test;
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
 import start.web.pojos.WebBooking;
 
@@ -21,13 +21,13 @@ public class WebBookingToBookingConverterTest {
 	public void shouldConvertAWebBookingToDomainOne() {
 
 		final WebBooking webBooking = new WebBooking(1L, 2L, 3L);
-		final Booker booker = new Booker("David");
+		final Registrant registrant = new Registrant("David");
 
 		//when
-		final Booking domainBooking = converter.convert(webBooking, booker);
+		final Booking domainBooking = converter.convert(webBooking, registrant);
 
 		//then
-		final Booking expectedBooking = new Booking(booker, 1L);
+		final Booking expectedBooking = new Booking(registrant, 1L);
 
 		assertThat(domainBooking).isEqualTo(expectedBooking);
 	}

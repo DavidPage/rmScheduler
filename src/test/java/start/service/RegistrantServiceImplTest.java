@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import start.entity.repository.BookerRepository;
+import start.entity.repository.RegistrantRepository;
 
 import static org.mockito.Mockito.verify;
 
@@ -13,13 +13,13 @@ import static org.mockito.Mockito.verify;
 public class RegistrantServiceImplTest {
 
     @Mock
-    BookerRepository bookerRepository;
+    RegistrantRepository registrantRepository;
 
     RegistrantServiceImpl bookerService;
 
     @Before
     public void setUp() throws Exception {
-        this.bookerService = new RegistrantServiceImpl(bookerRepository);
+        this.bookerService = new RegistrantServiceImpl(registrantRepository);
     }
 
     @Test
@@ -29,7 +29,7 @@ public class RegistrantServiceImplTest {
         this.bookerService.getAll();
 
         //then
-        verify(bookerRepository).findAll();
+        verify(registrantRepository).findAll();
 
     }
 }

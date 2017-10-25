@@ -4,10 +4,9 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
-import start.entity.booker.Booker;
+import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
-import start.entity.repository.BookerRepository;
-import start.service.RegistrantRepository;
+import start.entity.repository.RegistrantRepository;
 
 import java.util.Collection;
 
@@ -21,11 +20,11 @@ public class DemoApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(BookerRepository bookerRepository, RegistrantRepository registrantRepository) {
+	CommandLineRunner runner(RegistrantRepository bookerRepository, start.service.BookingRepository bookingRepository) {
 		return args -> {
 
 			asList("david.cuevas@rightmove.co.uk,hamez@rightmove.co.uk,jorge@rightmove.com".split(","))
-					.forEach(n -> bookerRepository.save(new Booker(n)));
+					.forEach(n -> bookerRepository.save(new Registrant(n)));
 
 
 			Long propertyId1 = 123456789L;
@@ -33,14 +32,14 @@ public class DemoApplication {
 
 			bookerRepository.findAll()
 					.forEach(b -> {
-						registrantRepository.save(new Booking(b, propertyId1));
-						registrantRepository.save(new Booking(b, propertyId2));
+						bookingRepository.save(new Booking(b, propertyId1));
+						bookingRepository.save(new Booking(b, propertyId2));
 					});
 
-			Collection<Booker> aBooker = bookerRepository.findAll();
-			Collection<Booking> bookings = registrantRepository.findAll();
+			Collection<Registrant> aRegistrant = bookerRepository.findAll();
+			Collection<Booking> bookings = bookingRepository.findAll();
 
-			aBooker.forEach(System.out::println);
+			aRegistrant.forEach(System.out::println);
 			bookings.forEach(System.out::println);
 		};
 	}

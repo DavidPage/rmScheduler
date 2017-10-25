@@ -1,27 +1,27 @@
 package start.service;
 
 import org.springframework.stereotype.Service;
-import start.entity.booker.Booker;
-import start.entity.repository.BookerRepository;
+import start.entity.booker.Registrant;
+import start.entity.repository.RegistrantRepository;
 
 import java.util.Collection;
 
 @Service
 public class RegistrantServiceImpl implements RegistrantService {
 
-	private BookerRepository bookerRepository;
+	private RegistrantRepository registrantRepository;
 
-	public RegistrantServiceImpl(BookerRepository bookerRepository) {
-		this.bookerRepository = bookerRepository;
+	public RegistrantServiceImpl(RegistrantRepository registrantRepository) {
+		this.registrantRepository = registrantRepository;
 	}
 
 	@Override
-	public Collection<Booker> getAll() {
-		return bookerRepository.findAll();
+	public Collection<Registrant> getAll() {
+		return registrantRepository.findAll();
 	}
 
 	@Override
-	public Booker getBookerById(Long id) {
-		return bookerRepository.findOne(id);
+	public Registrant getBookerById(Long id) {
+		return registrantRepository.findOne(id);
 	}
 }

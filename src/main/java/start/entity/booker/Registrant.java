@@ -6,29 +6,29 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
-public class Booker {
+public class Registrant {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
 	@Column
-	private String bookerName;
+	private String email;
 
 
-	Booker() { // Needed for JPA!
+	Registrant() { // Needed for JPA!
 	}
 
-	public Booker(String bookerName) {
-		this.bookerName = bookerName;
+	public Registrant(String email) {
+		this.email = email;
 	}
 
 	public Long getId() {
 		return id;
 	}
 
-	public String getBookerName() {
-		return bookerName;
+	public String getEmail() {
+		return email;
 	}
 
 	@Override
@@ -40,18 +40,18 @@ public class Booker {
 			return false;
 		}
 
-		Booker booker = (Booker) o;
+		Registrant registrant = (Registrant) o;
 
-		if (id != null ? !id.equals(booker.id) : booker.id != null) {
+		if (id != null ? !id.equals(registrant.id) : registrant.id != null) {
 			return false;
 		}
-		return bookerName != null ? bookerName.equals(booker.bookerName) : booker.bookerName == null;
+		return email != null ? email.equals(registrant.email) : registrant.email == null;
 	}
 
 	@Override
 	public int hashCode() {
 		int result = id != null ? id.hashCode() : 0;
-		result = 31 * result + (bookerName != null ? bookerName.hashCode() : 0);
+		result = 31 * result + (email != null ? email.hashCode() : 0);
 		return result;
 	}
 
@@ -59,7 +59,7 @@ public class Booker {
 	public String toString() {
 		return "Booker{" +
 				"id=" + id +
-				", bookerName=" + bookerName +
+				", email=" + email +
 				'}';
 	}
 }
