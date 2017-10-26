@@ -15,22 +15,21 @@ public class RegistrantControllerTest {
     @Mock
     private RegistrantService registrantService;
 
-    BookerController bookerController;
+    RegistrantController registrantController;
 
     @Before
     public void setUp() throws Exception {
-        bookerController = new BookerController(this.registrantService);
+        registrantController = new RegistrantController(this.registrantService);
     }
 
     @Test
     public void shouldCallBookersRepositoryGetAll() {
 
         //when
-        bookerController.getBookers();
+        registrantController.getBookers();
 
         //then
         verify(registrantService).getAll();
 
     }
-
 }

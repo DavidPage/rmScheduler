@@ -8,11 +8,11 @@ import start.service.RegistrantService;
 import java.util.Collection;
 
 @RestController
-public class BookerController {
+public class RegistrantController {
 
 	private RegistrantService registrantService;
 
-	BookerController(RegistrantService registrantService) {
+	RegistrantController(RegistrantService registrantService) {
 		this.registrantService = registrantService;
 	}
 
