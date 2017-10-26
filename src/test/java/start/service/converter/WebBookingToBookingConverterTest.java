@@ -27,7 +27,7 @@ public class WebBookingToBookingConverterTest {
 		final Booking domainBooking = converter.convert(webBooking, registrant);
 
 		//then
-		final Booking expectedBooking = new Booking(registrant, 1L);
+		final Booking expectedBooking = new Booking(registrant, 1L, webBooking.getTimestamp());
 
 		assertThat(domainBooking).isEqualTo(expectedBooking);
 	}

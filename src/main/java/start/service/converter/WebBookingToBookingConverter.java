@@ -9,6 +9,6 @@ import start.web.pojos.WebBooking;
 public class WebBookingToBookingConverter {
 
 	public Booking convert(final WebBooking webBooking, final Registrant registrant) {
-		return new Booking(registrant, webBooking.getPropertyId());
+		return new Booking(registrant, webBooking.getPropertyId(), webBooking.getTimestamp());
 	}
 }

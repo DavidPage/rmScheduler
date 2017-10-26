@@ -30,10 +30,13 @@ public class DemoApplication {
 			Long propertyId1 = 123456789L;
 			Long propertyId2 = 999999999L;
 
+			Long timestampId1 = 123456789L;
+			Long timestampId2 = 999999999L;
+
 			bookerRepository.findAll()
 					.forEach(b -> {
-						bookingRepository.save(new Booking(b, propertyId1));
-						bookingRepository.save(new Booking(b, propertyId2));
+						bookingRepository.save(new Booking(b, propertyId1, timestampId1));
+						bookingRepository.save(new Booking(b, propertyId2, timestampId2));
 					});
 
 			Collection<Registrant> aRegistrant = bookerRepository.findAll();

@@ -41,8 +41,8 @@ public class BookingServiceImplTest {
 	public void shouldReturnCollectionOfBookingsByBookerId() throws Exception {
 
 		final Registrant registrant = new Registrant("David");
-		final Booking booking1 = new Booking(registrant, 1L);
-		final Booking booking2 = new Booking(registrant, 2L);
+		final Booking booking1 = new Booking(registrant, 1L, 123456789L);
+		final Booking booking2 = new Booking(registrant, 2L, 123456789L);
 
 		//given
 		when(bookingRepository.getBookingByRegistrantId(1L)).thenReturn(asList(booking1, booking2));
@@ -74,7 +74,7 @@ public class BookingServiceImplTest {
 
 		final Registrant registrant = new Registrant("David");
 
-		final Booking booking = new Booking(registrant, 1L);
+		final Booking booking = new Booking(registrant, 1L, webBooking.getTimestamp());
 
 		//given
 		when(registrantService.getBookerById(2L)).thenReturn(registrant);

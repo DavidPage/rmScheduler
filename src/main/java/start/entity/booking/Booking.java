@@ -17,23 +17,18 @@ public class Booking {
 
 	private Long propertyId;
 
+	private Long timestamp;
+
 	@ManyToOne
 	private Registrant registrant;
 
 	public Booking() {//for JPA
 	}
 
-	public Booking(Registrant registrant, Long propertyId) {
+	public Booking(Registrant registrant, Long propertyId, Long timestamp) {
 		this.registrant = registrant;
 		this.propertyId = propertyId;
-	}
-
-	public Registrant getRegistrant() {
-		return registrant;
-	}
-
-	public Long getPropertyId() {
-		return propertyId;
+		this.timestamp = timestamp;
 	}
 
 	@Override
@@ -47,12 +42,8 @@ public class Booking {
 		Booking booking = (Booking) o;
 		return Objects.equals(id, booking.id) &&
 				Objects.equals(propertyId, booking.propertyId) &&
+				Objects.equals(timestamp, booking.timestamp) &&
 				Objects.equals(registrant, booking.registrant);
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, propertyId, registrant);
 	}
 
 	@Override
@@ -60,7 +51,29 @@ public class Booking {
 		return "Booking{" +
 				"id=" + id +
 				", propertyId=" + propertyId +
-				", booker=" + registrant +
+				", timestamp=" + timestamp +
+				", registrant=" + registrant +
 				'}';
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id, propertyId, timestamp, registrant);
+	}
+
+	public Registrant getRegistrant() {
+		return registrant;
+	}
+
+	public Long getPropertyId() {
+		return propertyId;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public Long getTimestamp() {
+		return timestamp;
 	}
 }
