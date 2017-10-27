@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import start.entity.repository.RegistrantRepository;
+import start.service.registrant.RegistrantServiceImpl;
 
 import static org.mockito.Mockito.verify;
 

@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import start.entity.booking.Booking;
-import start.service.BookingServiceImpl;
+import start.service.booking.BookingServiceImpl;
 import start.web.pojos.WebBooking;
 
 import java.util.Collection;

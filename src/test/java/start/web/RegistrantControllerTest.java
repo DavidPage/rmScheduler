@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
-import start.service.RegistrantService;
+import start.service.registrant.RegistrantService;
 
 import static org.mockito.Mockito.verify;
 

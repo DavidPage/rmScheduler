@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
+import start.entity.repository.BookingRepository;
 import start.entity.repository.RegistrantRepository;
 
 import java.util.Collection;
@@ -20,7 +21,7 @@ public class DemoApplication {
 	}
 
 	@Bean
-	CommandLineRunner runner(RegistrantRepository bookerRepository, start.service.BookingRepository bookingRepository) {
+	CommandLineRunner runner(RegistrantRepository bookerRepository, BookingRepository bookingRepository) {
 		return args -> {
 
 			asList("david.cuevas@rightmove.co.uk,hamez@rightmove.co.uk,jorge@rightmove.com".split(","))

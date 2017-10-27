@@ -7,7 +7,10 @@ import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
 import start.entity.booker.Registrant;
 import start.entity.booking.Booking;
+import start.entity.repository.BookingRepository;
+import start.service.booking.BookingServiceImpl;
 import start.service.converter.WebBookingToBookingConverter;
+import start.service.registrant.RegistrantService;
 import start.web.pojos.WebBooking;
 
 import java.util.Collection;

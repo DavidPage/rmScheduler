@@ -5,7 +5,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
-import start.service.BookingServiceImpl;
+import start.service.booking.BookingServiceImpl;
 import start.web.pojos.WebBooking;
 
 import static org.mockito.Mockito.verify;

@@ -3,7 +3,7 @@ package start.web;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 import start.entity.booker.Registrant;
-import start.service.RegistrantService;
+import start.service.registrant.RegistrantService;
 
 import java.util.Collection;
 

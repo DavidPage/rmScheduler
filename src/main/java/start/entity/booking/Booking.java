@@ -19,6 +19,8 @@ public class Booking {
 
 	private Long timestamp;
 
+	private Status status;
+
 	@ManyToOne
 	private Registrant registrant;
 
@@ -29,6 +31,18 @@ public class Booking {
 		this.registrant = registrant;
 		this.propertyId = propertyId;
 		this.timestamp = timestamp;
+		this.status = Status.PENDING;
+	}
+
+	@Override
+	public String toString() {
+		return "Booking{" +
+				"id=" + id +
+				", propertyId=" + propertyId +
+				", timestamp=" + timestamp +
+				", status=" + status +
+				", registrant=" + registrant +
+				'}';
 	}
 
 	@Override
@@ -43,22 +57,13 @@ public class Booking {
 		return Objects.equals(id, booking.id) &&
 				Objects.equals(propertyId, booking.propertyId) &&
 				Objects.equals(timestamp, booking.timestamp) &&
+				status == booking.status &&
 				Objects.equals(registrant, booking.registrant);
 	}
 
 	@Override
-	public String toString() {
-		return "Booking{" +
-				"id=" + id +
-				", propertyId=" + propertyId +
-				", timestamp=" + timestamp +
-				", registrant=" + registrant +
-				'}';
-	}
-
-	@Override
 	public int hashCode() {
-		return Objects.hash(id, propertyId, timestamp, registrant);
+		return Objects.hash(id, propertyId, timestamp, status, registrant);
 	}
 
 	public Registrant getRegistrant() {
@@ -75,5 +80,9 @@ public class Booking {
 
 	public Long getTimestamp() {
 		return timestamp;
+	}
+
+	public Status getStatus() {
+		return status;
 	}
 }
